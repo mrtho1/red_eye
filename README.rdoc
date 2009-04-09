@@ -1,26 +1,27 @@
 = red_eye
 
-* FIX (url)
+* Simple Ruby wrapper around Google's Geocoding APIs
 
 == DESCRIPTION:
 
-FIX (describe your package)
+See http://code.google.com/apis/maps/documentation/geocoding/
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* Error Handling
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+>> geocoder = RedEye::GeoCoder.new
+>> res = geocoder.geocode "1600 Pennsylvania Ave, NW Washington, DC, 20500"
+>> res.success?
+>> res.placemarks.size
+>> res.placemarks.first.point
+>> res.placemarks.first.address
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
-
 == INSTALL:
-
-* FIX (sudo gem install, anything else)
 
 == LICENSE:
 
