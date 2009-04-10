@@ -11,14 +11,13 @@ See http://code.google.com/apis/maps/documentation/geocoding/
 * Error Handling
 
 == SYNOPSIS:
-
->> geocoder = RedEye::GeoCoder.new<br/>
->> res = geocoder.geocode "1600 Pennsylvania Ave, NW Washington, DC, 20500"<br/>
->> res.success?<br/>
->> res.placemarks.size<br/>
->> res.placemarks.first.point<br/>
->> res.placemarks.first.address<br/>
-
+ geocoder = RedEye::GeoCoder.new
+ res = geocoder.geocode "1600 Pennsylvania Ave, NW Washington, DC, 20500"
+ if res.success?
+   res.placemarks.each do |placemark|
+     p "#{placemark.point}@#{placemark.address}"
+   end
+ end
 == REQUIREMENTS:
 
 == INSTALL:
