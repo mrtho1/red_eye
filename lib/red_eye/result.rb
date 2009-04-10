@@ -8,7 +8,6 @@ module RedEye
                   :raw
     
     def initialize options = {}
-      self.code = :success
       self.request = "geocode"
       self.placemarks = []
       
@@ -17,6 +16,6 @@ module RedEye
     
     def success?
       self.code == Constants::StatusCode::SUCCESS
-    end    
+    end        
   end
 end

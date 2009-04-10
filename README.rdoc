@@ -12,12 +12,12 @@ See http://code.google.com/apis/maps/documentation/geocoding/
 
 == SYNOPSIS:
 
->> geocoder = RedEye::GeoCoder.new
->> res = geocoder.geocode "1600 Pennsylvania Ave, NW Washington, DC, 20500"
->> res.success?
->> res.placemarks.size
->> res.placemarks.first.point
->> res.placemarks.first.address
+>> geocoder = RedEye::GeoCoder.new<br/>
+>> res = geocoder.geocode "1600 Pennsylvania Ave, NW Washington, DC, 20500"<br/>
+>> res.success?<br/>
+>> res.placemarks.size<br/>
+>> res.placemarks.first.point<br/>
+>> res.placemarks.first.address<br/>
 
 == REQUIREMENTS:
 

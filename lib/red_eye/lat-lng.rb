@@ -17,5 +17,9 @@ module RedEye
     def to_array
       [lat, lng]
     end
+    
+    def ==(other)
+      self.instance_variables == other.instance_variables
+    end    
   end
 end
