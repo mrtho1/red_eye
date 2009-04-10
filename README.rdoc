@@ -1,14 +1,17 @@
 = red_eye
 
-* Simple Ruby wrapper around Google's Geocoding APIs
+ * Simple Ruby wrapper around Google's Geocoding APIs
+ * Includes support for country and bounding box biasing
+ * Includes support for reverse geocoding
 
 == DESCRIPTION:
 
-See http://code.google.com/apis/maps/documentation/geocoding/
+ See http://code.google.com/apis/maps/documentation/geocoding/ for geocoding details.
 
 == FEATURES/PROBLEMS:
 
 * Error Handling
+* Documentation
 
 == SYNOPSIS:
  geocoder = RedEye::GeoCoder.new
@@ -18,6 +21,8 @@ See http://code.google.com/apis/maps/documentation/geocoding/
      p "#{placemark.point}@#{placemark.address}"
    end
  end
+
+ # Check out the unit tests for more examples.
 == REQUIREMENTS:
 
 == INSTALL:
@@ -26,7 +31,7 @@ See http://code.google.com/apis/maps/documentation/geocoding/
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Michael R. Thompson
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
