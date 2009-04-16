@@ -27,13 +27,13 @@ module RedEye
     def to_array
       [lat, lng]
     end
-    
-    def ==(other)
-      self.instance_variables == other.instance_variables
-    end    
   end
   
   class Placemark < Struct.new(:address, :point, :accuracy)
+    def initialize options = {}
+    
+      options.each_pair {|key, value| send("#{key}=", value)}
+    end
   end
   
   class Result < Struct.new(:name, :code, :request, :placemarks, :raw)

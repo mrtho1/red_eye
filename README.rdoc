@@ -1,8 +1,8 @@
 = red_eye
 
- * Simple Ruby wrapper around Google's Geocoding APIs
- * Includes support for country and bounding box biasing
- * Includes support for reverse geocoding
+* Simple Ruby wrapper around Google's Geocoding APIs
+* Includes support for country and bounding box biasing
+* Includes support for reverse geocoding
 
 == DESCRIPTION:
 
