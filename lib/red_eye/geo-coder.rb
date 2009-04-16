@@ -14,7 +14,7 @@ module RedEye
         
     def geocode query, options = {}
       
-      url_params = merge_query_params create_default_query_params(query), options
+      url_params = generate_query_params query, options
       
       params = ''
       url_params.each do |key, val|
@@ -51,21 +51,20 @@ module RedEye
     end
     
     private
-      def create_default_query_params query
-        
-        #Force the to_s for reverse geocoding params on a LatLng
-        {:q => query.to_s,
-         :key => self.key,
-         :sensor => false,
-         :output => 'json',
-         :oe => 'utf8'
-        }
-      end
-
-      def merge_query_params url_params, options
     
-        merged_params = {}.merge! url_params
+      def generate_query_params query, options
         
+        #Start off the merged_params with some defaults
+        merged_params = {
+          :q => query.to_s,
+          :key => self.key,
+          :sensor => false,
+          :output => 'json',
+          :oe => 'utf8'          
+        }
+        
+        #pull in the user options one by one, substituting 
+        #some of the less user friendly names
         options.each do |key, val|    
           case key
           when :key, :sensor, :gl
@@ -80,7 +79,7 @@ module RedEye
           end
         end
         
-        merged_params
-      end    
+        merged_params        
+      end      
   end
 end

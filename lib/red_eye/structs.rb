@@ -1,48 +1,36 @@
+require 'ostruct'
+
 module RedEye
 
-  class Bias < Struct.new(:center, :span)
+  class Bias < OpenStruct
 
-    def initialize options = {}
-      self.center = LatLng.new
-      self.span = []
-    
-      options.each_pair {|key, value| send("#{key}=", value)}    
+    def initialize options = nil
+      super(options)
+      self.center ||= LatLng.new
+      self.span ||= []
     end
   end
   
-  class LatLng < Struct.new(:lat, :lng)
+  class LatLng < OpenStruct
   
-    def initialize options = {}
-    
-      self.lat = 0.0
-      self.lng = 0.0
-    
-      options.each_pair {|key, value| send("#{key}=", value)}
+    def initialize options = nil
+      super(options)
+      self.lat ||= 0.0
+      self.lng ||= 0.0
     end
-  
+    
     def to_s
-      "#{lat},#{lng}"
-    end
-  
-    def to_array
-      [lat, lng]
+      "#{self.lat},#{self.lng}"
     end
   end
   
-  class Placemark < Struct.new(:address, :point, :accuracy)
-    def initialize options = {}
-    
-      options.each_pair {|key, value| send("#{key}=", value)}
-    end
-  end
+  class Placemark < OpenStruct; end
   
-  class Result < Struct.new(:name, :code, :request, :placemarks, :raw)
-
-    def initialize options = {}
-      self.request = "geocode"
-      self.placemarks = []
-      
-      options.each_pair {|key, value| send("#{key}=", value)}      
+  class Result < OpenStruct
+    def initialize options = nil
+      super(options)
+      self.request ||= "geocode"
+      self.placemarks ||= []
     end
     
     def success?
