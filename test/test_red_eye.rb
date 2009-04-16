@@ -16,7 +16,7 @@ class TestRedEye < Test::Unit::TestCase
     assert_equal 1, result.placemarks.size
     assert_equal RedEye::Constants::Accuracy::ADDRESS, result.placemarks.first.accuracy
     assert_equal "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA", result.placemarks.first.address
-    assert_equal RedEye::LatLng.new(:lat => -122.084143, :lng => 37.421972), result.placemarks.first.point
+    assert_equal RedEye::LatLng.new(:lat => 37.421972, :lng => -122.084143), result.placemarks.first.point
   end
   
   def test_reverse_geocode
