@@ -11,8 +11,8 @@ module RedEye
       self.key = GOOGLE_APP_ID
       options.each_pair {|key, value| send("#{key}=", value)}      
     end
-        
-    def geocode query, options = {}
+    
+    def to_url query, options = {}
       
       url_params = generate_query_params query, options
       
@@ -22,10 +22,13 @@ module RedEye
         params << "#{key}=#{val}"
       end
     
-      params = URI.encode(params)
-
+      self.url_base + URI.encode(params)
+    end
+        
+    def geocode query, options = {}
+      
       #TODO MUCHO BETTERO Error Handling      
-      response = Net::HTTP.get_response(URI.parse(self.url_base + params))
+      response = Net::HTTP.get_response URI.parse(to_url(query, options))
       json_result = JSON.parse(response.body)
 
       result = Result.new :name => json_result["name"], 
